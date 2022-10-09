@@ -11,6 +11,7 @@ vector<Room*>room;
 map<int,Bookings>bookings;
 map<int,Customer>cust;
 vector<int>checkout;
+vector<int>check_in;
 public:
 void booking_func();
 void checkIn(); 
@@ -28,6 +29,8 @@ void displayBookingsReports();
 void displayCutomerReports();
 void displayRoomReports();
 void readCheckOutDB();
+void readCheckInDB();
+void updateCheckInDB();
 void updateCheckOutDB();
 vector<Room*> getRoom(){
     return room;
