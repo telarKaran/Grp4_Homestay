@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdlib.h>
 #include<string>
 #include<cstring>
 #include<vector>
@@ -10,6 +11,7 @@ using namespace std;
 
 
 void case1(Hotel &nature_valley){
+     system("clear");
   
     cout<<"-------Manage Rooms--------------"<<endl;
     cout<<"-------Enter 1: Search Available Rooms-------"<<endl;
@@ -41,7 +43,7 @@ void case1(Hotel &nature_valley){
 }
 
 void case2(Hotel &nature_valley) {
-
+   system("clear");
     cout<<endl;
     cout<<"-------Customer Rooms--------------"<<endl;
     cout<<"-------Enter 1: Booking-------"<<endl;
@@ -50,6 +52,7 @@ void case2(Hotel &nature_valley) {
     cout<<"-------Enter 4:  Edit info--------"<<endl;
     cout<<"-------Enter 5: Back to Main Menu-------"<<endl<<endl;
     int input2;
+    cout<< "Enter Choice "<<endl;
     cin>>input2;
     switch(input2) {
         case 1: {
@@ -79,13 +82,14 @@ void case2(Hotel &nature_valley) {
 }
 
 void case3(Hotel &nature_valley) {
-    cout<<endl;
+    system("clear");
     cout<<"-------Display Reports------------"<<endl;
     cout<<"-------Enter 1: Customer Report-------"<<endl;
     cout<<"-------Enter 2: Booking Report-------"<<endl;
     cout<<"-------Enter 3: Rooms Report-------"<<endl;
     cout<<"-------Enter 4: Back to Main Menu-------"<<endl<<endl;
     int input2;
+    cout<<"Enter Choice"<<endl;
     cin>>input2;
     switch(input2) {
         case 1: {
@@ -120,17 +124,21 @@ int main() {
      nature_valley.filereadRooms();
      nature_valley.filereadBooking();
      nature_valley.readCheckOutDB();
+     nature_valley.readCheckInDB();
+     
      
 
     while(1){
         //Level 1
+        system("clear");
         level1:
-        cout<<"-------MAIN MENU-------------------"<<endl;
+        cout<<"-------WELCOME TO THE HOTEL NATURE VALLEY---------------"<<endl;
         int input;
         cout<<"-------Enter 1: Manage Rooms-------"<<endl;
         cout<<"-------Enter 2: Manage Customers---"<<endl;
         cout<<"-------Enter 3: Guest Reports------"<<endl;
         cout<<"-------Enter 4: Exit Main Menu-----"<<endl;
+        cout<<"Enter choice"<<endl;
         cin>>input;
 
         //Level 2
@@ -170,6 +178,7 @@ nature_valley.updateBookingDB();
 nature_valley.updateCustomerDB();
 nature_valley.updateRoomDB();
 nature_valley.updateCheckOutDB();
+nature_valley.updateCheckInDB();
      
 //nature_valley.deleteSpace();
 return 0;

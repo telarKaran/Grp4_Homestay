@@ -1,4 +1,4 @@
-101:standard:vacant:ac
+101:standard:occupied:ac
 102:standard:vacant:non-ac
 103:standard:vacant:non-ac
 104:standard:vacant:non-ac
@@ -9,7 +9,7 @@
 109:standard:vacant:non-ac
 110:standard:vacant:non-ac
 201:standard:vacant:non-ac
-202:delux:vacant:ac
+202:delux:occupied:ac
 203:delux:vacant:ac
 204:delux:vacant:ac
 205:delux:vacant:ac

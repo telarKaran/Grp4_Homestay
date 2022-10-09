@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<sstream>
+#include<stdlib.h>
 #include "../header/hotel.h"
 #define FOOD_CHARGE 1000
 #define EXTRA_PERSON_CHARGE 500   
@@ -81,6 +82,7 @@ int daysBetweenDates(string date1, string date2) {
 
 void Hotel::booking_func()
 {
+     system("clear");
      string cust_first_name,cust_last_name,cust_phone,cust_address,stay_start_date,stay_end_date;
      int no_of_persons,year1,month1,day1,year2,month2,day2;
      bool flag =0,res1,res2;
@@ -141,15 +143,16 @@ void Hotel::booking_func()
               file_out.open("../data/stat1.txt");
               file_out<<bookId;
              file_out.close();
+        cout<<"Booking Done Succesfully and your bookingId is :"<<bookId<<endl;
         }
         else{
             cout<<"please enter correct details"<<endl;
         }
 }
 void Hotel::checkIn(){
-    
-     int booking_id,CustomerId;
-     string room_type;
+     system("clear");
+     int booking_id,CustomerId,choice;
+     string room_type,stype;
 
      cout<<"Enter booking id";
      cin>>booking_id;
@@ -157,13 +160,17 @@ void Hotel::checkIn(){
      
    if(!noofAvailableRooms()){
        cout<<"No rooms are available";
+       return;
     }
-    
-    else{
         //traverse the bookings map  to get the customer details for the booking id
                auto it =bookings.find(booking_id);
                for(int i=0; i<checkout.size(); i++ ){
                       if(checkout[i]==booking_id){
+                         flag1=1;
+                      }
+               }
+               for(int i=0; i<check_in.size(); i++ ){
+                      if(check_in[i]==booking_id){
                          flag1=1;
                       }
                }
@@ -184,36 +191,65 @@ void Hotel::checkIn(){
               it->second.setCustomerId(CustomerId);
             
 
-                cout<<"Enter the room type to stay in";
-                cin>>room_type;
-                if(room_type!="standard" && room_type!="delux" && room_type!="cottage"){
+                cout<<"\t.Enter the room type to stay in"<<endl;
+                cout<<"Enter 1 to Standard "<<endl;
+                cout<<"Enter 2 to Delux"<<endl;
+                cout<<"Enter 3 to cottage"<<endl;
+                cout<<"Enter choice"<<endl;
+                cin>>choice;
+                switch(choice){
+                    case 1: 
+                         room_type="standard";
+                    break;
+                    case 2:
+                        room_type="delux";
+                    break;
+                    case 3:
+                       room_type ="cottage";
+                    break;
+                    default:
+                       cout<<"Enter valid choice"<<endl;
+                     
+                }
+                
+               if(room_type!="standard" && room_type!="delux" && room_type!="cottage"){
                     cout<<"Please choose valid room type"<<endl;
                     return;
                 }
-                for(auto x =room.begin(); x!=room.end();x++)
+               else 
                 {
-                       if((*x)->getStatus()== 0 && (*x)->getType()==room_type)
+                    for(auto itr=room.begin(); itr!=room.end();itr++)
+                    {
+                       if((*itr)->getStatus()== 0 && (*itr)->getType()==room_type)
                         {
-                           (*x)->setcustomerId(CustomerId);
+                           (*itr)->setcustomerId(CustomerId);
                            bool k=1;
-                           (*x)->setStatus(k);
+                           (*itr)->setStatus(k);
+                           cout<<" Customer CheckedIn Successfully"<<endl;
                            break;
                         }
+                        else{
+                            cout<<"The room type that customer requires is not available currently"<<endl;
+                             return;
+                        }
+                    }
                 }
           
               fstream file_out;
               file_out.open("../data/stat2.txt");
               file_out<<CustomerId;
              file_out.close();
+             check_in.push_back(booking_id);
+    }
 
-       }
             else{
                cout<<"Enter correct booking_id"<<endl;
             }
-        }
 }
+
 void Hotel::checkOut()
 {
+            system("clear");
             int custid,bookId, rent;
             string confirmation;
             double totalBill;
@@ -450,6 +486,35 @@ void Hotel::readCheckOutDB(){
     }
                 fin2.close();
 }
+void Hotel::readCheckInDB(){
+     char filename[ ] = "../reports/checkIn.txt";
+     fstream fin2;
+
+     try {
+		fin2.open(filename,ios::in);
+		if(!fin2.is_open())
+			throw ;
+	}
+	catch(...) {
+		cout<<"\n\tError in opening file to read...";
+		return;
+	}
+     while(true)
+    {
+                
+                string segment;
+                
+              if (!getline(fin2, segment))
+                     break;
+                     
+                
+                 int bookId=(stoi)(segment);
+
+                  check_in.push_back(bookId);
+                  
+    }
+                fin2.close();
+}
 void Hotel::updateCheckOutDB(){
  char filename[ ] = "../reports/checkOut.txt";
         ofstream file_out;
@@ -464,6 +529,23 @@ void Hotel::updateCheckOutDB(){
 	}
         for(int i=0; i<checkout.size(); i++){
             file_out<<checkout[i]<<endl;
+        }
+        file_out.close();
+}
+void Hotel::updateCheckInDB(){
+ char filename[ ] = "../reports/checkIn.txt";
+        ofstream file_out;
+        try {
+		file_out.open(filename, std::ios_base::trunc);
+		if(!file_out.is_open())
+			throw ;
+	}
+	catch(...) {
+		cout<<"\n\tError in opening file to write...";
+		return;
+	}
+        for(int i=0; i<check_in.size(); i++){
+            file_out<<check_in[i]<<endl;
         }
         file_out.close();
 }
