@@ -11,5 +11,5 @@ customer.o:./src/customer.cpp
 mainMenu.o:./src/mainMenu.cpp
 	g++ -o ./bin/mainMenu.o -c ./src/mainMenu.cpp
 clean:
-	./bin/*.exe ./bin/*.o
+	rm ./bin/*.exe ./bin/*.o
  
