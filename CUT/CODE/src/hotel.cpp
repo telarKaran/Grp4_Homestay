@@ -144,6 +144,7 @@ void Hotel::booking_func()
               file_out<<bookId;
              file_out.close();
         cout<<"Booking Done Succesfully and your bookingId is :"<<bookId<<endl;
+            
         }
         else{
             cout<<"please enter correct details"<<endl;
@@ -226,12 +227,13 @@ void Hotel::checkIn(){
                            bool k=1;
                            (*itr)->setStatus(k);
                            cout<<" Customer CheckedIn Successfully"<<endl;
+                           flag1=1;
                            break;
                         }
-                        else{
-                            cout<<"The room type that customer requires is not available currently"<<endl;
-                             return;
-                        }
+                        
+                    }
+                    if(flag1==0){
+                      cout<<"The entered room type is not available currently"<<endl;
                     }
                 }
           
@@ -276,6 +278,7 @@ void Hotel::checkOut()
                            string roomType = (*itr)->getType();
                            if(roomType=="standard"){
                                rent =((StdRoom*)(*itr))->getRent();
+                               
                             
                            }
                            else if(roomType=="deluxe"){
@@ -286,7 +289,7 @@ void Hotel::checkOut()
                                rent =((Cottage*)(*itr))->getRent();
                             
                            }
-                            int default_val =00000;
+                            int default_val =0;
                            (*itr)->setcustomerId(default_val);
                            bool flag=0;
                            (*itr)->setStatus(flag);
@@ -349,7 +352,7 @@ bool checkValidity(string str)
 
   words = words + 1;
 
- if(words==4){return 1;}else{return 0;}
+ if(words==5){return 1;}else{return 0;}
 }
 void Hotel::filereadRooms()
 {
@@ -373,6 +376,7 @@ void Hotel::filereadRooms()
 		string type;
 		string status;
 		string stype;
+        string customer_id;
 		string line;
 		getline(fin2,line);
 
@@ -381,6 +385,7 @@ void Hotel::filereadRooms()
         getline(transporter, type, ':');
 		getline(transporter, status, ':');
 		getline(transporter, stype, ':');
+        getline(transporter,customer_id,':');
 		if(roomNumber.size()<2){
 			continue;
 		}
@@ -401,7 +406,7 @@ void Hotel::filereadRooms()
         }
 		
         Room *room_obj;
-        room_obj =new Room((stoi)(roomNumber),type,isBooked,stype);
+        room_obj =new Room((stoi)(roomNumber),type,isBooked,stype,(stoi)(customer_id));
 
         room.emplace_back(room_obj);
         //delete room_obj;
@@ -591,7 +596,7 @@ void Hotel::updateRoomDB(){
         { 
         if((*it)->getStatus()==0) status ="vacant";
         else status ="occupied";
-        file_out <<(*it)->getRoomNumber()<<":"<<(*it)->getType()<<":"<<status<<":"<<(*it)->getStype()<<endl;
+        file_out <<(*it)->getRoomNumber()<<":"<<(*it)->getType()<<":"<<status<<":"<<(*it)->getStype()<<":"<<(*it)->getCustomerId()<<endl;
         }
         file_out.close();
 }
