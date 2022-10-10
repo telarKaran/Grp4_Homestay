@@ -11,7 +11,7 @@ string stype;
 bool status;
 public:
 Room();
-Room(int roomno,string type,bool status,string stype);
+Room(int roomno,string type,bool status,string stype,int customer_id);
 void setcustomerId(int custid);
 void setRoomNumber(int roomNumber);
 void setType(string type);

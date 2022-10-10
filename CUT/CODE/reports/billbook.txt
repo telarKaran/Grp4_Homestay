@@ -2,5 +2,3 @@
 102:Graham Potter:10002:1:6600
 104:Grace Maria:10004:3:21000
 106:Benjamin Pavard:10006:2:8400
-107:Karan Telar:10007:1:6600
-103:Eric Garcia:10003:5:6600

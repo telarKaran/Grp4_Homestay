@@ -1,9 +1,9 @@
 101:10001:Criston:Cole:Chicago:2022-11-02:2022-11-04:4
 102:10002:Graham:Potter:California:2022-11-04:2022-11-05:3
-103:10003:Eric:Garcia:new_york:2022-11-05:2022-11-10:4
-104:10004:Grace:Maria:atlanta:2022-11-06:2022-11-09:5
+103:10003:Eric:Garcia:New_york:2022-11-05:2022-11-10:4
+104:10004:Grace:Maria:Atlanta:2022-11-06:2022-11-09:5
 105:10005:Putrevu:Nikhil:Rajam:2022-11-06:2022-11-12:2
 106:10006:Benjamin:Pavard:Texas:2022-11-07:2022-11-09:1
 107:10007:Karan:Telar:Gujarat:2022-11-08:2022-11-09:3
-108:10008:Vamsi:Prasad:Mumbai:2022-11-10:2022-11-14:2
-109:0:Chirag:Kumar:Mumbai:2022-11-12:2022-11-16:3
+108:0:vamsi:Prasad:Mumbai:2022-11-13:2022-11-15:2
+109:0:Chirag:Kumar:Mumbai:2022-11-13:2022-11-17:2
