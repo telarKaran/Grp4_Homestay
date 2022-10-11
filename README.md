@@ -17,7 +17,7 @@ customers, bookings, check-ins, check-outs and the bill book.
 </div>
 
 ## Getting started
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
+[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
 ```sh
 cd Grp4_Homestay/CUT/CODE/           # cd into CODE Directory where Makefile is present
 make                                 # Run make command to invokes the execution of the makefile
