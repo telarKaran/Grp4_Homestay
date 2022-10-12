@@ -5,7 +5,7 @@
 #include<fstream>
 #include<sstream>
 using namespace std;
-#include "../header/rooms.h"
+#include <rooms.h>
 Room::Room(int roomno,string type,bool status,string stype,int customer_id){
  this->roomNumber=roomno;
  this->type =type;

@@ -1,8 +1,11 @@
 #include<vector>
 #include<map>
-#include "./rooms.h"
-#include "./customer.h"
-#include "./bookings.h"
+//#include "./rooms.h"
+//#include "./customer.h"
+//#include "./bookings.h"
+#include <rooms.h>
+#include <customer.h>
+#include <bookings.h>
 
 class Hotel 
 {

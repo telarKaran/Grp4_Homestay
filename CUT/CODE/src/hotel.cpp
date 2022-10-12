@@ -2,7 +2,7 @@
 #include<string>
 #include<sstream>
 #include<stdlib.h>
-#include "../header/hotel.h"
+#include <hotel.h>
 #include "./hotel1.cpp"
 #define FOOD_CHARGE 1000
 #define EXTRA_PERSON_CHARGE 500   

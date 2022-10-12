@@ -5,7 +5,7 @@
 #include<vector>
 #include<fstream>
 #include<sstream>
-#include "../header/hotel.h"
+#include <hotel.h>
 using namespace std;
 
 

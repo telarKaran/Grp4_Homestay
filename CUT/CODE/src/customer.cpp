@@ -1,4 +1,4 @@
-#include "../header/customer.h"
+#include <customer.h>
 //seter functions..............................
 void Customer::setCustomerFName(string first_name)
 {
