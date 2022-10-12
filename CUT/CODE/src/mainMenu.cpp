@@ -13,23 +13,16 @@ using namespace std;
 void case1(Hotel &nature_valley){
      system("clear");
   
-    cout<<"-------Manage Rooms--------------"<<endl;
-    cout<<"-------Enter 1: Search Available Rooms-------"<<endl;
-    cout<<"-------Enter 2: Back to main Menu-------"<<endl;
+    cout<<"\n-------Manage Rooms--------------"<<endl;
+    cout<<"\n-------Enter 1: Search Available Rooms-------"<<endl;
+    cout<<"\n------Enter 2: Back to main Menu-------"<<endl;
     int input2;
     cout<<"option"<<endl;
      cin>>input2;
     switch(input2) {
         case 1:  
-            int index;
-            for(auto it = nature_valley.getRoom().begin(); it!=nature_valley.getRoom().end();it++){
-                if((*it)->getRoomNumber()==input2){
-                     index=(*it)->getRoomNumber();
-               (nature_valley.getRoom())[index]->searchRoom(nature_valley.getRoom()[index]);
+            nature_valley.displayRooms();
               break;
-                }
-            }
-          break;
         
         case 2: {
                //back to main menu
@@ -45,12 +38,12 @@ void case1(Hotel &nature_valley){
 void case2(Hotel &nature_valley) {
    system("clear");
     cout<<endl;
-    cout<<"-------Customer Rooms--------------"<<endl;
-    cout<<"-------Enter 1: Booking-------"<<endl;
-    cout<<"-------Enter 2: Check In------"<<endl;
-    cout<<"-------Enter 3: Check out------"<<endl;
-    cout<<"-------Enter 4:  Edit info--------"<<endl;
-    cout<<"-------Enter 5: Back to Main Menu-------"<<endl<<endl;
+    cout<<"\n-------Manage Cutomers--------------"<<endl;
+    cout<<"\n-------Enter 1: Booking-------"<<endl;
+    cout<<"\n-------Enter 2: Check In------"<<endl;
+    cout<<"\n------ Enter 3: Check out------"<<endl;
+    cout<<"\n-------Enter 4:  Back to Main Menu-------"<<endl;
+    
     int input2;
     cout<< "Enter Choice "<<endl;
     cin>>input2;
@@ -68,12 +61,10 @@ void case2(Hotel &nature_valley) {
             break;
         }
         case 4: {
+            //back to mainmenu
             break;
         }
-        case 5: {
-            //getting back to main menu
-            break;
-        }
+        
         default: {
             cout<<"--------Invalid Input-----------"<<endl;
             break;
@@ -83,11 +74,11 @@ void case2(Hotel &nature_valley) {
 
 void case3(Hotel &nature_valley) {
     system("clear");
-    cout<<"-------Display Reports------------"<<endl;
-    cout<<"-------Enter 1: Customer Report-------"<<endl;
-    cout<<"-------Enter 2: Booking Report-------"<<endl;
-    cout<<"-------Enter 3: Rooms Report-------"<<endl;
-    cout<<"-------Enter 4: Back to Main Menu-------"<<endl<<endl;
+    cout<<"\n\t-------Display Reports------------"<<endl;
+    cout<<"\n-------Enter 1: Customer Report-------"<<endl;
+    cout<<"\n------Enter 2: Booking Report-------"<<endl;
+    cout<<"\n-------Enter 3: Rooms Report-------"<<endl;
+    cout<<"\n-------Enter 4: Back to Main Menu-------"<<endl<<endl;
     int input2;
     cout<<"Enter Choice"<<endl;
     cin>>input2;
@@ -132,13 +123,13 @@ int main() {
         //Level 1
         system("clear");
         level1:
-        cout<<"-------WELCOME TO THE HOTEL NATURE VALLEY---------------"<<endl;
+        cout<<"\n\t-------WELCOME TO THE HOTEL NATURE VALLEY---------------"<<endl;
         int input;
-        cout<<"-------Enter 1: Manage Rooms-------"<<endl;
-        cout<<"-------Enter 2: Manage Customers---"<<endl;
-        cout<<"-------Enter 3: Guest Reports------"<<endl;
-        cout<<"-------Enter 4: Exit Main Menu-----"<<endl;
-        cout<<"Enter choice"<<endl;
+        cout<<"\n-------Enter 1: Manage Rooms-------"<<endl;
+        cout<<"\n-------Enter 2: Manage Customers---"<<endl;
+        cout<<"\n-------Enter 3: Guest Reports------"<<endl;
+        cout<<"\n-------Enter 4: Exit Main Menu-----"<<endl;
+        cout<<"\n-------Enter choice :"<<endl;
         cin>>input;
 
         //Level 2
@@ -175,11 +166,12 @@ int main() {
 //update the room STL into rooms database;
 //update the bookings STL into bookings database;
 nature_valley.updateBookingDB();
-nature_valley.updateCustomerDB();
+//nature_valley.updateCustomerDB();
 nature_valley.updateRoomDB();
-nature_valley.updateCheckOutDB();
 nature_valley.updateCheckInDB();
+nature_valley.updateCheckOutDB();
      
 //nature_valley.deleteSpace();
+cout<<"\n\nThank you for using the application"<<endl;
 return 0;
 }

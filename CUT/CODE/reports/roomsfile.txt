@@ -9,7 +9,7 @@
 109:standard:vacant:non-ac:0
 110:standard:vacant:non-ac:0
 201:standard:vacant:non-ac:0
-202:delux:occupied:ac:10003
+202:delux:occupied:ac:10006
 203:delux:vacant:ac:0
 204:delux:vacant:ac:0
 205:delux:vacant:ac:0
@@ -18,7 +18,7 @@
 208:delux:vacant:ac:0
 209:delux:vacant:ac:0
 210:delux:vacant:ac:0
-301:cottage:occupied:ac:10007
+301:cottage:occupied:ac:10003
 302:cottage:vacant:ac:0
 303:cottage:vacant:ac:0
 304:cottage:vacant:ac:0

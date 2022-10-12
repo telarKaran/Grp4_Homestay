@@ -3,8 +3,8 @@
 #include<string>
 #include<fstream>
 #include<vector>
-using namespace std;
 #include "../header/bookings.h"
+using namespace std;
 Bookings::Bookings(){
    
 }
